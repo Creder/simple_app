@@ -9,6 +9,7 @@ end
 
 gem 'rails', '5.0.1'
 gem 'bcrypt'
+gem 'faker'
 gem 'bootstrap-sass'
 gem 'puma'
 gem 'sass-rails'

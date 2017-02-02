@@ -10,10 +10,7 @@ Rails.application.routes.draw do default_url_options :host => "sim-app.com"
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :users do
-    member do
-      get :confirm_email
-    end
-  end
+  resources :users
+  resources :account_activations, only: [:edit]
 
 end

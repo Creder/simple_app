@@ -1,8 +1,13 @@
-class UserMailer < ActionMailer::Base
-    default :from => "sample_app@simpledomain.com"
+class UserMailer < ApplicationMailer
 
- def registration_confirmation(user)
+  def account_activation(user)
     @user = user
-    mail(:to => "#{user.name} <#{user.email}>", :subject => "Registration Confirmation")
- end
+    mail to: user.email, subject: "Account activation"
+  end
+
+  def password_reset
+    @greeting = "Hi"
+
+    mail to: "to@example.org"
+  end
 end
