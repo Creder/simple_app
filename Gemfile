@@ -10,7 +10,6 @@ end
 gem 'rails', '5.0.1'
 gem 'bcrypt'
 gem 'bootstrap-sass'
-gem 'sqlite3'
 gem 'puma'
 gem 'sass-rails'
 gem 'uglifier'
