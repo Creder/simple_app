@@ -1,0 +1,1 @@
+img.setControlsVisibility({'mtr':false,  'bl': false, 'br': false, 'mb':false, 'tl': false, 'tr': false, 'mt':false, 'ml': false, 'mr': false});
