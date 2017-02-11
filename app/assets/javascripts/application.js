@@ -16,5 +16,6 @@
 //= require turbolinks
 //= require fabric
 //= require canvas
+//= require cloudinary
 //= require_tree .
 

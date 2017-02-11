@@ -14,7 +14,6 @@
 				for (var i=0; i<files.length; i++) {
 					var file = files[i];
 					var reader = new FileReader();
-					  
 					//attach event handlers here...
 					reader.onload = function (e) {
 						var img = new Image();
@@ -35,14 +34,12 @@
 			canvas_container.addEventListener('dragover', cancel);
 			canvas_container.addEventListener('dragenter', cancel);
 
-			var angleControl = $('angle-control');
-  			angleControl.onchange = function() {
+  			$('angle-control').onchange = function() {
     			canvas.getActiveObject().setAngle(parseInt(this.value, 10)).setCoords();
    				canvas.renderAll();
  			 };
 
- 			var scaleControl = $('scale-control');
-  			scaleControl.onchange = function() {
+  			$('scale-control').onchange = function() {
     			canvas.getActiveObject().scale(parseFloat(this.value)).setCoords();
    				canvas.renderAll();
  			 };
