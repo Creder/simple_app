@@ -4,7 +4,6 @@
 <%= cloudinary_js_config %>
 
   <% if logged_in? %>
-  <%= Cloudinary::Uploader.upload('/home/creder/Downloads/586698-random-picture.jpg') %>
       <%= javascript_include_tag "canvas" %>
       <div id="canvas-container">
   			<canvas id="c" width="800" height="800" style="border: 1px solid black;"></canvas>
