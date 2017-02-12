@@ -7,13 +7,19 @@
       <%= javascript_include_tag "canvas" %>
       <div id="canvas-container">
          
-  			<canvas id="c" width="800" height="800" style="border: 1px solid black;"></canvas>
+  			<canvas id="c" width="800" height="600" style="border: 1px solid black;"></canvas>
 	  </div> 
-     <div class="dropzone" id="img-upload">
+    <div class="dropzone" id="img-upload">
 
-          </div>
-          <input type="button" id="save_collage" name="Save Collage" value="Save collage">
+    </div>
+    <div class="user-album">
+    <% @user.photos.each do |photo| %>
+  <%= cl_image_tag photo.path %>
+<% end %>
+    </div>
+    <input type="button" id="save_collage" name="Save Collage" value="Save collage">
 	  <div class = "controls">
+                <input type="button" id="delete-object" name="delete image" value="delete image">
   		<table>
   		    <tr>
   		        <td><label><span>Angle:</span> <input id="angle-control" value="0" min="-180" max="180" type="range"></label></td>
@@ -25,8 +31,6 @@
   			</tr>
   	    </table>
 	  </div>
-    </div>
-
   <% else %>
     <h1>Sample App</h1>
     <h2>

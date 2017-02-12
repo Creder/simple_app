@@ -14,8 +14,10 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
 //= require fabric
 //= require canvas
-//= require cloudinary
 //= require dropzone
+//= require jquery-fileupload/basic
+//= require cloudinary/jquery.cloudinary
+//= require attachinary
+//= require_tree .

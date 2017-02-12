@@ -12,5 +12,6 @@ Rails.application.routes.draw do default_url_options :host => "sim-app.com"
   delete '/logout',  to: 'sessions#destroy'
   resources :users
   resources :account_activations, only: [:edit]
+  mount Attachinary::Engine => "/attachinary"
 
 end

@@ -9,6 +9,7 @@ end
 
 gem 'rails', '5.0.1'
 gem 'cloudinary'
+gem 'attachinary'
 gem 'carrierwave', '~> 1.0'
 gem 'dropzonejs-rails'
 gem 'fabricjs-rails'
@@ -20,6 +21,7 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
+gem 'jquery-fileupload-rails'
 gem 'turbolinks' 
 gem 'jbuilder'
 

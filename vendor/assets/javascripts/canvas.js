@@ -17,9 +17,8 @@
     			var imageObject = image.set({
       				left: 10,
       				top: 10,
-      				angle: 0,
-      				width: 200,
-      				height: 200
+      				angle: 0
+
     				});
     			imageObject.hasControls = false;
     				canvas.add(imageObject).renderAll();
@@ -53,6 +52,11 @@
     			 
   			}
 
+        var deleteObject = $('delete-object');
+   			deleteObject.onclick = function()
+  			{
+  				canvas.getActiveObject().remove();
+  			}
   			var saveCollage = $('save_collage');
   			saveCollage.onclick = function()
   			{
@@ -92,6 +96,7 @@
 				if (e.preventDefault) { e.preventDefault(); }
 				return false;
 		    }
+
 		    
 			// fabric.Object.prototype.transparentCorners = false;
 
