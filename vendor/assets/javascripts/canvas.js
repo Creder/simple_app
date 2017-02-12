@@ -1,39 +1,42 @@
 (function(){
+
+	        Dropzone.autoDiscover = false;
+            var imgUpload = new Dropzone("#img-upload", {
+            url: 'https://api.cloudinary.com/v1_1/dccp5abtr/image/upload',
+            createImageThumbnails:false
+            });
+
 	        var $ = function(id){return document.getElementById(id)};
 			var canvas_container = $('canvas-container');
 			var canvas = new fabric.Canvas('c');
-			var ctx = canvas.getContext('2d');
-			canvas_container.addEventListener('drop', function (e) {
-				console.log("DROP");
-				e = e || window.event;
-				if (e.preventDefault) {
-					e.preventDefault();
-				}
-				var dt = e.dataTransfer;
-				var files = dt.files;
-				for (var i=0; i<files.length; i++) {
-					var file = files[i];
-					var reader = new FileReader();
-					//attach event handlers here...
-					reader.onload = function (e) {
-						var img = new Image();
-						img.src = e.target.result;
-						var imgInstance = new fabric.Image(img, {
-							left: 100,
-							top: 100,
+			
+			var reader = new FileReader();
+			reader.onload = function(event) {
+  				var data = event.target.result;
+  				fabric.Image.fromURL(data, function(image) {
+    			var imageObject = image.set({
+      				left: 10,
+      				top: 10,
+      				angle: 0,
+      				width: 200,
+      				height: 200
+    				});
+    			imageObject.hasControls = false;
+    				canvas.add(imageObject).renderAll();
+    				canvas.setActiveObject(imageObject);
+  					});
+				};
 
-						});
-						imgInstance.hasControls = false;
-						canvas.add(imgInstance);
-					}
-					reader.readAsDataURL(file);
-				}
-				
-				return false;
+			imgUpload.on("success", (file, response) => {
+  			reader.readAsDataURL(file);
 			});
-			canvas_container.addEventListener('dragover', cancel);
-			canvas_container.addEventListener('dragenter', cancel);
 
+			imgUpload.on("sending", function(file, xhr, formData) {
+  				formData.append('api_key', 314976358927773);
+  				formData.append('timestamp', Date.now()/1000|0);
+  				formData.append('upload_preset', 'tryytafk');
+			});
+			
   			$('angle-control').onchange = function() {
     			canvas.getActiveObject().setAngle(parseInt(this.value, 10)).setCoords();
    				canvas.renderAll();
@@ -50,6 +53,12 @@
     			 
   			}
 
+  			var saveCollage = $('save_collage');
+  			saveCollage.onclick = function()
+  			{
+  				canvas.deactivateAll().renderAll();
+  				window.open(canvas.toDataURL('png'));
+  			}
   			var toFront = $('bring-to-front');
   			toFront.onclick = function()
   			{

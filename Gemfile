@@ -9,6 +9,8 @@ end
 
 gem 'rails', '5.0.1'
 gem 'cloudinary'
+gem 'carrierwave', '~> 1.0'
+gem 'dropzonejs-rails'
 gem 'fabricjs-rails'
 gem 'bcrypt'
 gem 'faker'
